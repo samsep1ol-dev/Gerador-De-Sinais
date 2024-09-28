@@ -15,7 +15,7 @@ function gerarSinal() {
    
     const nh = new Date(Date.now() + tempoRestante * 1000);
     const nhStr = nh.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    const linkUrl = "https://www.tigervip2.com/?id=528078088&currency=BRL&type=2";
+    const linkUrl = "https://9f.com/r/1ov2X6cb";
     const linkText = "Clique aqui para JOGAR e ganhar!";
     const ahref = `<a href="${linkUrl}" target="_blank">${linkText}</a>`;
     
