@@ -20,7 +20,7 @@ function gerarSinal() {
     const ahref = `<a href="${linkUrl}" target="_blank">${linkText}</a>`;
     
     const msg = `
-✅] ENTRADA CONFIRMADA!
+✅ ENTRADA CONFIRMADA!
 
 Aposte com: ${bb} 💣
 <hr>
