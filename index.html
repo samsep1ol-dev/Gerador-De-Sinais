@@ -1,23 +1,128 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerador de Sinais</title>
-    <link rel="shortcut icon" href="Leonardo_Phoenix_Stylized_digital_logo_featuring_a_hooded_figu_1-removebg-preview.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+    <title>Convite para Bot de Sinais</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #121212;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #ffffff;
+        }
+
+        .logo-container {
+            margin-bottom: 20px; /* Espaçamento entre a logo e o contêiner da mensagem */
+        }
+
+        .logo {
+            width: 150px; /* Ajuste o tamanho conforme necessário */
+            height: auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #f5f5f5;
+            text-align: center;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 1.2rem;
+            background-color: #1dbf73;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        button:hover {
+            background-color: #17a564;
+            transform: translateY(-4px);
+        }
+
+        button:active {
+            transform: translateY(2px);
+        }
+
+        .message-container {
+            background-color: #282828;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .message {
+            font-size: 1.5rem;
+            margin-top: 10px;
+            color: #ddd;
+        }
+
+        @media (max-width: 600px) {
+            h2 {
+                font-size: 2rem;
+            }
+
+            button {
+                font-size: 1rem;
+            }
+
+            .message {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+    <script>
+        let count = 3;
+
+        function updateMessage() {
+            const message = document.getElementById("message");
+            const inviteButton = document.getElementById("invite-button");
+
+            // Atualiza a mensagem com o número de convites restantes
+            if (count > 1) {
+                count--;
+                message.innerHTML = `Convide ${count} ${count === 1 ? 'pessoa' : 'pessoas'} para acessar o bot de sinais`;
+            } else {
+                message.innerHTML = "Você desbloqueou, acessando o bot...";
+                inviteButton.style.display = 'none'; // Esconde o botão após o último convite
+                setTimeout(() => {
+                    window.location.href = "/bot.html"; // Redireciona para a rota desejada
+                }, 2000);
+            }
+        }
+
+        function redirectToWhatsApp() {
+            const whatsappLink = "https://api.whatsapp.com/send/?text=🔥%20Chegou%20o%20NOVO%20bot%20de%20sinais%20de%20MINES!%20🚀%20Prepare-se%20pra%20encher%20os%20bolsos%20de%20grana%20💵!%0A%0A🎯%20Acesse%20agora%3A%20https%3A%2F%2Fsinaismines.vercel.app%2F%0A%0A✅%20ENTRADA%20GRATUITA%20-%20Sinais%2024%2F7!%F0%9F%92%A5%F0%9F%9A%80";
+            window.open(whatsappLink, '_blank'); // Abre o link do WhatsApp em nova aba
+            updateMessage(); // Atualiza a contagem de convites restantes
+        }
+    </script>
 </head>
 <body>
-    <div class="container">
-        <h1>Gerador de Sinais 24/7</h1>
-        <div class="sinais-container">
-            <div id="resultado" class="resultado sinais"></div>
-            <div class="anuncio">
-                <iframe src="https://9f.com/r/1ov2X6cb" frameborder="0"></iframe>
-            </div>
-        </div>
+
+    <div class="logo-container">
+        <img src="Leonardo_Phoenix_Stylized_digital_logo_featuring_a_hooded_figu_1-removebg-preview.png" alt="Logo do Site" class="logo"> <!-- Substitua pela URL da sua logo -->
+    </div>
+    
+    <div class="message-container">
+        <h2>Convide 3 pessoas para acessar o bot de sinais</h2>
+        <button id="invite-button" onclick="redirectToWhatsApp()">Clique aqui para convidar</button>
+        <p id="message" class="message">Convide 3 pessoas para acessar o bot de sinais</p>
     </div>
 
-    <script src="script.js"></script>
 </body>
 </html>
